@@ -23,6 +23,16 @@ const UserRepo = {
     .lean()
     .exec(),
 
+  // find for resetPassword / forgot password token user
+  findForgotPasswordUser: token => User.findOne({
+    isActive: true,
+    "forgotPassword.token": token,
+    "forgotPassword.expiresAt": { $gte: new Date() },
+  })
+    .select("+email +name")
+    .lean()
+    .exec(),
+
   // Find a user by _id
   findProfileById: id => User.findOne({ _id: id, isActive: true })
     .select("+roles")

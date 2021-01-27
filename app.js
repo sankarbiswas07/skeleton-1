@@ -9,7 +9,8 @@ const { corsUrl, environment, traceStackForAllError } = require("./config")
 
 require("./database") // initialize database
 const { NotFoundError, ApiError, InternalError } = require("./lib/core/apiError")
-const router = require("./routes/rest/v1")
+const apiRouterV1 = require("./routes/rest/v1")
+const webRouterV1 = require("./routes/web")
 
 // important here "__dirname is only defined in scripts. It's not available in REPL"
 // const __dirname = path.resolve()
@@ -44,7 +45,8 @@ app.set("view engine", "ejs")
 app.use(express.static(path.join(__dirname, "public")))
 
 // Routes
-app.use("/v1", router)
+app.use("/v1", apiRouterV1)
+app.use("/w1", webRouterV1)
 
 // Send Path not found error
 app.use((req, res, next) => {

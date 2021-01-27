@@ -9,6 +9,7 @@ const config = {}
 //-----------------------------------------------------
 //                                            C O R E
 //-----------------------------------------------------
+config.projectName = process.env.PROJECT_NAME || "Sankar_skeleton"
 config.environment = process.env.NODE_ENV || "development"
 config.port = process.env.PORT || "3000"
 
@@ -17,6 +18,7 @@ config.keys = {
   private: fs.readFileSync("./keys/private.pem"),
   public: fs.readFileSync("./keys/public.pem")
 }
+config.saltRound = Number(process.env.SALT_ROUNDS) || 10
 
 //-----------------------------------------------------
 //                                          T O K E N

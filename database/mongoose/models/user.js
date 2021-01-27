@@ -1,7 +1,8 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
+const { saltRound } = require("../../../config")
 // const logger  = require("../../../lib/core/logger")
-const mailer = require("../../../lib/core/mail")
+
 const { model, Schema } = mongoose
 const DOCUMENT_NAME = "User"
 const COLLECTION_NAME = "users"
@@ -79,6 +80,28 @@ schema.pre("save", async function (next) {
   return next()
 })
 
+schema.pre("updateOne", async function (next) {
+  const user = this.getUpdate().$set
+  // Updated updatedBy adjust, for other model updatedBy should pass
+  // as it should be required field
+  // It's a User model, so self referencing _id
+  user.updatedBy = user.updatedBy || user.id || user._id
+  // if (user.updatedBy || user.id || user._id) {
+  //   user.updatedBy = user.updatedBy || user.id || user._id
+  // }
+  const { password } = user
+  if (!password) {
+    return next()
+  }
+  try {
+    user.password = await bcrypt
+      .hashSync(password, saltRound)
+    return next()
+  } catch (error) {
+    return next(error)
+  }
+})
+
 // compare two passwords:
 schema.methods.comparePassword = async function (pw) {
   try {
@@ -88,22 +111,6 @@ schema.methods.comparePassword = async function (pw) {
     throw error // rethrow
   }
 }
-// eslint-disable-next-line prefer-arrow-callback
-schema.post("save", function (doc) {
-  if (doc.generatedPassword !== undefined) {
-    // Send welcome email, but NO WAITING!
-    // logger.info(`doc.generatedPassword-  ${doc.generatedPassword}`)
-    mailer("welcome", {
-      to: doc.email,
-      subject: "Welcome!!!",
-      locals: {
-        email: doc.email,
-        password: doc.generatedPassword,
-        name: doc.name
-      }
-    })
-  }
-})
 
 schema.virtual("name.full").get(function () {
   const first = (this.name.first === undefined || this.name.first === null)

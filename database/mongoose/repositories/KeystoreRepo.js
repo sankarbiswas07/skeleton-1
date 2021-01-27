@@ -11,6 +11,11 @@ const KeystoreRepo = {
     .lean()
     .exec(),
 
+  removeAll: client => Keystore
+    .deleteMany({ client })
+    .lean()
+    .exec(),
+
   find: (client, primaryKey, secondaryKey) => Keystore
     .findOne({ client, primaryKey, secondaryKey })
     .lean()
