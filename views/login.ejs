@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- JQuery-ui CSS -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Gudea:400,700);
+
+        /* FOR MORE DYNAMIC COLOR CONTROL */
+        :root {
+            --body-top: #EA5C54;
+            --body-bottom: #bb6dec;
+            --card-border: #D8312A;
+            --highlight: #DC6180;
+
+            /* --body-top: rgb(84, 212, 234);
+            --body-bottom: #bbec6d;
+            --card-border: rgb(42, 74, 216);
+            --highlight:rgb(105, 97, 220); */
+
+            --submit-button-background: var(--highlight);
+            --submit-button-border: var(--highlight);
+            --submit-button-color: var(--highlight);
+            --input-password-text: var(--highlight);
+
+            --card-top: #35394a;
+            --card-bottom: #1f222e;
+            --card-heading: #afb1be;
+            --card-input: #afb1be;
+        }
+
+        body {
+            -webkit-perspective: 800px;
+            perspective: 800px;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Gudea', sans-serif;
+            background: var(--body-top);
+            /* Old browsers */
+            /* FF3.6+ */
+            /* Chrome,Safari4+ */
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            background: linear-gradient(135deg, var(--body-top) 0%, var(--body-bottom) 100%);
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='var(--body-top) ', endColorstr='var(--body-bottom)', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+        }
+
+        body ::-webkit-input-placeholder {
+            color: #4E546D;
+        }
+
+        body .authent {
+            display: none;
+            background: #35394a;
+            /* Old browsers */
+            /* FF3.6+ */
+            /* Chrome,Safari4+ */
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#35394a', endColorstr='#1f222e', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+            position: absolute;
+            left: 0;
+            right: 90px;
+            margin: auto;
+            width: 100px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            padding: 20px 70px;
+            top: 200px;
+            bottom: 0;
+            height: 70px;
+            opacity: 0;
+        }
+
+        body .authent p {
+            text-align: center;
+            color: white;
+        }
+
+        body .success {
+            display: none;
+            color: #d5d8e2;
+        }
+
+        body .success h2 {
+            display: block;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+        }
+
+        body .success p {
+            font-size: 15px;
+        }
+
+        body p {
+            color: #5B5E6F;
+            font-size: 15px;
+            text-align: left;
+        }
+
+        body .testtwo {
+            left: -320px !important;
+        }
+
+        body .test {
+            box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
+            pointer-events: none;
+            top: -100px !important;
+            -webkit-transform: rotateX(70deg) scale(0.8) !important;
+            transform: rotateX(70deg) scale(0.8) !important;
+            opacity: .6 !important;
+            -webkit-filter: blur(1px);
+            filter: blur(1px);
+        }
+
+        body .login {
+            opacity: 1;
+            top: 20px;
+            -webkit-transition-timing-function: cubic-bezier(0.68, -0.25, 0.265, 0.85);
+            -webkit-transition-property: opacity, box-shadow, top, left, -webkit-transform;
+            transition-property: opacity, box-shadow, top, left, -webkit-transform;
+            transition-property: transform, opacity, box-shadow, top, left;
+            transition-property: transform, opacity, box-shadow, top, left, -webkit-transform;
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            -webkit-transform-origin: 161px 100%;
+            transform-origin: 161px 100%;
+            -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+            position: relative;
+            width: 240px;
+            border-top: 2px solid var(--card-border);
+            height: 380px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+            padding: 100px 40px 40px 40px;
+            background: #35394a;
+            /* Old browsers */
+            /* FF3.6+ */
+            /* Chrome,Safari4+ */
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            background: linear-gradient(45deg, #35394a 0%, #1f222e 100%);
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#35394a', endColorstr='#1f222e', GradientType=1);
+            /* IE6-9 fallback on horizontal gradient */
+        }
+
+        body .login .validation {
+            position: absolute;
+            z-index: 1;
+            right: 10px;
+            top: 6px;
+            opacity: 0;
+        }
+
+        body .login .disclaimer {
+            position: absolute;
+            /* bottom: 20px; */
+            top: 360px;
+            left: 35px;
+            width: 250px;
+        }
+
+        body .illustration {
+            position: absolute;
+            top: 155px;
+            left: 35px;
+            width: 250px;
+        }
+
+        .illustration img {
+            height: 100%;
+            width: 100%;
+        }
+
+        body .login_title {
+            color: #afb1be;
+            height: 60px;
+            text-align: left;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        body .login_fields {
+            height: 208px;
+            position: absolute;
+            left: 0;
+        }
+
+        body .login_fields .icon {
+            position: absolute;
+            z-index: 1;
+            left: 36px;
+            top: 8px;
+            opacity: .5;
+        }
+
+        body .login_fields input[type='password'] {
+            color: var(--input-password-text) !important;
+        }
+
+        body .login_fields input[type='text'],
+        body .login_fields input[type='password'] {
+            color: #afb1be;
+            width: 190px;
+            margin-top: -2px;
+            background: #32364a;
+            left: 0;
+            padding: 10px 65px;
+            border-top: 2px solid #393d52;
+            border-bottom: 2px solid #393d52;
+            border-right: none;
+            border-left: none;
+            outline: none;
+            font-family: 'Gudea', sans-serif;
+            box-shadow: none;
+        }
+
+        body .login_fields__user,
+        body .login_fields__password {
+            position: relative;
+        }
+
+        body .login_fields__submit {
+            position: relative;
+            top: 35px;
+            left: 0;
+            width: 80%;
+            right: 0;
+            margin: auto;
+        }
+
+        body .login_fields__submit .forgot {
+            float: right;
+            font-size: 15px;
+            margin-top: 11px;
+            text-decoration: underline;
+        }
+
+        body .login_fields__submit .forgot a {
+            color: #606479;
+        }
+
+        body .login_fields__submit input {
+            border-radius: 50px;
+            background: transparent;
+            padding: 10px 50px;
+            border: 2px solid var(--submit-button-border);
+            color: var(--submit-button-color);
+            text-transform: uppercase;
+            font-size: 15px;
+            -webkit-transition-property: background, color;
+            transition-property: background, color;
+            -webkit-transition-duration: .2s;
+            transition-duration: .2s;
+        }
+
+        .box_submit {
+            border: 2px solid rgb(58, 58, 58) !important;
+            color: rgb(58, 58, 58) !important;
+        }
+
+        .box_submit:hover {
+            border: 2px solid rgb(58, 58, 58) !important;
+            color: rgb(58, 58, 58) !important;
+            cursor: not-allowed !important;
+            background: transparent !important;
+            -webkit-transition-property: background, color !important;
+            transition-property: background, color !important;
+            -webkit-transition-duration: .2s !important;
+            transition-duration: .2s !important;
+        }
+
+        body .login_fields__submit input:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        body .login_fields__submit input:hover {
+            color: white;
+            background: var(--submit-button-background);
+            cursor: pointer;
+            -webkit-transition-property: background, color;
+            transition-property: background, color;
+            -webkit-transition-duration: .2s;
+            transition-duration: .2s;
+        }
+
+        /* Color Schemes */
+        .love {
+            position: absolute;
+            right: 20px;
+            bottom: 0px;
+            font-size: 15px;
+            font-weight: normal;
+        }
+
+        .love p {
+            color: white;
+            font-weight: normal;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .love a {
+            color: white;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .love img {
+            position: relative;
+            top: 3px;
+            margin: 0px 4px;
+            width: 10px;
+        }
+
+        .brand {
+            position: absolute;
+            left: 20px;
+            bottom: 14px;
+        }
+
+        .brand img {
+            width: 30px;
+        }
+    </style>
+
+    <title>Reset | Password</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- main html start-->
+        <!-- <div class='brand'>
+        <a href='https://www.instacky.com' target='_blank'>INSTACKY
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/logo.png'>
+        </a>
+    </div> -->
+        <div class='login'>
+            <div class='login_title'>
+                <span>Sign In</span>
+            </div>
+            <form name="changePass-form" id="changePass-form">
+                <div class='login_fields'>
+                    <div class='login_fields__user'>
+                        <div class='icon'>
+                            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/user_icon_copy.png'>
+                        </div>
+                        <input id="handle" placeholder="Email" v-model="reset.email" type='text'>
+                        <div class='validation'>
+                            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                        </div>
+                        </input>
+                    </div>
+                    <div class='login_fields__password'>
+                        <div class='icon'>
+                            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/lock_icon_copy.png'>
+                        </div>
+                        <input name="newPass" id="newPass" v-model="reset.password" placeholder='Password'
+                            type='password'>
+                        <div class='validation'>
+                            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/tick.png'>
+                        </div>
+                    </div>
+                    <div class='login_fields__submit'>
+                        <input :class="isOK" :disabled="!canSendNow" name="submit" id="submit" @click="submit"
+                            type='button' value='Login'>
+                        <div class='forgot'>
+                            <a href='#'>Forgot password?</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class='illustration' id="success-msg" style='display: none'>
+                <img src="/images/illustration/undraw_confirmation.svg">
+            </div>
+            <!-- <div class='success' id="error-msg" style='text-align: center;'> -->
+            <div id="error-msg" class='illustration' style='display: none'>
+                <img src="/images/illustration/undraw_cancel.svg">
+            </div>
+            <!-- <div id="disclaimer" class='disclaimer'>
+                <p>If you don't want to reset your password ignore the page, the link will be expired by it's own.
+                    By changing the password you will be logged out from all the devices</p>
+            </div> -->
+        </div>
+        <div class='love'>
+            <p>Made with <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/love_copy.png" /> by <a
+                    href='https://www.instacky.com' target='_blank'> Instacky </a></p>
+        </div>
+    </div>
+
+    <!-- main html end-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script>
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                canSubmit: false,
+                rest: {
+                    route: "/v1/auth/login",
+                    login: "<%- frontEndLogin %>"
+                },
+                header: {
+                    "x-api-key": "<%- apiKey %>"
+                },
+                reset: {
+                    email: "",
+                    password: ""
+                }
+            },
+
+            computed: {
+                // same as this.validationPasswordCheck() but for confirm password
+                // plus it will watch canSubmit (ensure confirm password check)
+                // a class name in return
+                isOK() {
+                    let vm = this
+                    if (vm.canSubmit) {
+                        $("#newPass-verify")
+                            .next()
+                            .animate({ 'opacity': '1', 'right': '30' }, 200)
+                        return ""
+                    }
+                    $("#newPass-verify")
+                        .next()
+                        .animate({ 'opacity': '0', 'right': '30' }, 200)
+                    return "box_submit"
+                },
+                // it will check the bellow logic set true/ false to enable/disable submit button
+                canSendNow() {
+                    let vm = this
+                    if (
+                        vm.reset.password !== ""
+                        && vm.reset.password.length >= 6
+                        && vm.reset.email !== ""
+                        && vm.reset.email.length >= 6
+                        && vm.validateEmail(vm.reset.email)
+                    ) {
+                        vm.canSubmit = true
+                    } else {
+                        vm.canSubmit = false
+                    }
+                    return vm.canSubmit
+                }
+            },
+            mounted: function () {
+                // animation will show a little light to the selected lock icon
+                this.animation()
+                // This will watch by default min 6 & max 12 character's password
+                // if all ok, it will animate and push few css to next element of #newPass
+                this.validationPasswordCheck()
+            },
+
+            methods: {
+                validateEmail: function(str) {
+                    const isValidEmail = new RegExp(/([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}/, 'igm').test(str)
+                    // console.log("email is valid => ", isValidEmail)
+                    return isValidEmail
+                },
+                validationPasswordCheck: function () {
+                    $("#handle").keyup(function () {
+                        if ($(this).val().length >= 6 && app.validateEmail($(this).val())) {
+                            $(this).next().animate({ 'opacity': '1', 'right': '30' }, 200)
+                        } else {
+                            $(this).next().animate({ 'opacity': '0', 'right': '20' }, 200)
+                        }
+                    })
+                    $("#newPass").keyup(function () {
+                        if ($(this).val().length >= 6) {
+                            $(this).next().animate({ 'opacity': '1', 'right': '30' }, 200)
+                        } else {
+                            $(this).next().animate({ 'opacity': '0', 'right': '20' }, 200)
+                        }
+                    })
+                },
+                animation: function () {
+                    $(`#handle`).focus(function () {
+                        $(this).prev().animate({ 'opacity': '1' }, 200)
+                    })
+                    $(`#handle`).blur(function () {
+                        $(this).prev().animate({ 'opacity': '.5' }, 200)
+                    })
+
+                    $(`input[type="password"]`).focus(function () {
+                        $(this).prev().animate({ 'opacity': '1' }, 200)
+                    })
+                    $(`input[type="password"]`).blur(function () {
+                        $(this).prev().animate({ 'opacity': '.5' }, 200)
+                    })
+                },
+                submit: function (e) {
+                    e.preventDefault();
+                    try {
+                        let vm = this
+                        //Safe check
+                        if (!vm.canSubmit || vm.reset.email.length < 6 || !app.validateEmail(vm.reset.email) || vm.reset.password.length < 6) {
+                            alert("Don't be a smart A$$")
+                            return null
+                        }
+                        $.ajax({
+                            headers: { "x-api-key": vm.header["x-api-key"] },
+                            method: "POST",
+                            type: "POST",
+                            url: vm.rest.route,
+                            dataType: "json",
+                            data: {
+                                email: vm.reset.email,
+                                token: vm.reset.token,
+                                password: vm.reset.password
+                            },
+                            beforeSend: function (data) {
+                                $('.login').addClass('test') // loader
+                            },
+                            success: function (resp) {
+                                $('.login').removeClass('test')
+                                $("#disclaimer p").html(`Done !!! password has been reset, your all logged in session has been cleared.
+                                 please <strong><a style="color:#5B5E6F ; text-decoration: none;" href=${vm.rest.login}>Login to continue.</a><strong>`)
+                                $("#changePass-form").hide();
+                                $("#success-msg").show();
+                            },
+                            error: function (err) {
+                                $('.login').removeClass('test')
+                                $("#disclaimer p").html(`Sorry !!! reset password failed due to <b>${err.responseJSON.message}</b>, contact admin.`)
+                                $("#changePass-form").hide();
+                                $("#error-msg").show()
+                            }
+                        })
+                    } catch (err) {
+                        console.log(err)
+                    }
+                    return true
+                }
+            }
+        })                  
+    </script>
+</body>
+
+</html>
