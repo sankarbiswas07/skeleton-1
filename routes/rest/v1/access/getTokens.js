@@ -1,6 +1,4 @@
 const _ = require("lodash")
-const crypto = require("crypto")
-const bcrypt = require("bcrypt")
 const asyncHandler = require("../../../../lib/core/asyncHandler")
 const UserRepo = require("../../../../database/mongoose/repositories/UserRepo")
 const KeystoreRepo = require("../../../../database/mongoose/repositories/KeystoreRepo")
@@ -11,25 +9,19 @@ const { BadRequestError, AuthFailureError } = require("../../../../lib/core/apiE
 
 /**
    *
-   * @api {post} /v1/auth/login User Login
+   * @api {post} /v1/auth/getTokens User Login
    * @apiName userLogin
    * @apiGroup Auth
    * @apiVersion  1.0.0
    * @apiPermission Public
    *
-   * @apiHeader {String} x-api-key API key to access enter the server
+   * @apiHeader {String} x-access-token Access token to get the bearer token
+   * @apiHeader {String} x-user-id owner of the access token for validation
    *
-   * @apiParam  {String} email
-   * @apiParam  {String} password
    *
    *
    * @apiSuccess (200) {json} name description
    *
-   * @apiParamExample  {json} Request-Example:
-   * {
-   *     "email" : "sankarbiswas07@gmail.com",
-   *     "password" : "thisIsNotPass",
-   * }
    *
    *
    * @apiSuccessExample {json} Success-Response:
@@ -60,32 +52,33 @@ const { BadRequestError, AuthFailureError } = require("../../../../lib/core/apiE
    *
    *
    */
-const login = asyncHandler(async (req, res) => {
-  const user = await UserRepo.findByEmail(req.body.email)
+const getToken = asyncHandler(async (req, res) => {
+  const accessTokenKey = req.headers["x-access-token"]
+  const requestedUserId = req.headers["x-user-id"]
+  const user = await UserRepo.findById(requestedUserId)
+
   if (!user) throw BadRequestError("User not registered")
   if (!user.password) throw BadRequestError("Credential not set")
 
-  const match = await bcrypt.compare(req.body.password, user.password)
-  if (!match) throw AuthFailureError("Authentication failure")
+  const keystore = await KeystoreRepo
+    .findForKey(requestedUserId, accessTokenKey)
 
-  const accessTokenKey = crypto.randomBytes(64).toString("hex")
-  const refreshTokenKey = crypto.randomBytes(64).toString("hex")
-  await KeystoreRepo.create(user._id, accessTokenKey, refreshTokenKey)
+  if (!keystore) throw AuthFailureError("Invalid access token")
+
+  req.keystore = keystore
+
   // token
-  // const tokens = await assignTokens({
-  //   data: user,
-  //   primaryKey: accessTokenKey,
-  //   secondaryKey: refreshTokenKey
-  // })
+  const tokens = await assignTokens({
+    data: user,
+    primaryKey: keystore.primaryKey,
+    secondaryKey: keystore.secondaryKey
+  })
 
   return SuccessResponse(res, "Signup Successful", {
     user: _.pick(user, ["_id"]),
-    // client: _.pick(req.client, ["redirectUri", "key"]),
-    keys: {
-      accessKey: accessTokenKey,
-      // refreshKey: refreshTokenKey
-    }
+    client: _.pick(req.client, ["redirectUri", "key"]),
+    tokens
   })
 })
 
-module.exports = login
+module.exports = getToken

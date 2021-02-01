@@ -33,7 +33,7 @@ module.exports = {
 
     // Mail should be triggered here (with reset password link - resetPasswordLink)
     // Which will open a html page from backend which will reset the password
-    const resetPasswordLink = `${siteUrl}/w1/resetPassword/${forgotPassword.token}/${req.apiKey}`
+    const resetPasswordLink = `${siteUrl}/w1/resetPassword/${forgotPassword.token}/${req.client.apiKey}`
     // Send Email
     forgotMail(user.email, {
       _id: user._id,
@@ -93,7 +93,12 @@ module.exports = {
     const accessTokenKey = crypto.randomBytes(64).toString("hex")
     const refreshTokenKey = crypto.randomBytes(64).toString("hex")
     await KeystoreRepo.create(req.user._id, accessTokenKey, refreshTokenKey)
-    const tokens = await assignTokens(req.user, accessTokenKey, refreshTokenKey)
+    // const tokens = await assignTokens(req.user, accessTokenKey, refreshTokenKey)
+    const tokens = await assignTokens({
+      data: user,
+      primaryKey: accessTokenKey,
+      secondaryKey: refreshTokenKey
+    })
     // Mail should be triggered here (password changed successfully mail)
     setPasswordMail(user.email, {
       _id: user._id,

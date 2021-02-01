@@ -90,7 +90,12 @@ const refreshToken = asyncHandler(async (req, res) => {
   const refreshTokenKey = crypto.randomBytes(64).toString("hex")
 
   await KeystoreRepo.create(req.user._id, accessTokenKey, refreshTokenKey)
-  const tokens = await assignTokens(req.user, accessTokenKey, refreshTokenKey)
+  // const tokens = await assignTokens(req.user, accessTokenKey, refreshTokenKey)
+  const tokens = await assignTokens({
+    data: req.user,
+    primaryKey: accessTokenKey,
+    secondaryKey: refreshTokenKey
+  })
 
   return TokenRefreshResponse(res, "Token Issued", tokens)
 })

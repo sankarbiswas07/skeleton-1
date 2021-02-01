@@ -25,11 +25,11 @@ router.get("/login", asyncHandler(async (req, res) => {
     redirectUri,
     state,
   } = req.query
-  console.log("apiKey", apiKey)
+  // console.log("apiKey", apiKey)
 
   const client = await ApiKeyRepo.findByKey(apiKey)
   // validation
-  if (client === null) throw BadRequestError("clientId is not registered !!!")
+  if (client === null) throw BadRequestError("clientId is not registered  !!!")
   if (client.redirectUri !== redirectUri) throw BadRequestError("redirectUri is not registered !!!")
 
   return res.render("login", {

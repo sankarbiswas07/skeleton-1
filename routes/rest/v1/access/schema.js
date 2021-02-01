@@ -21,6 +21,11 @@ module.exports = {
     refreshToken: Joi.string().required().min(1),
   }),
 
+  issueToken: Joi.object().keys({
+    "x-user-id": JoiObjectId().required(),
+    "x-access-token": Joi.string().required(),
+  }).unknown(true),
+
   auth: Joi.object().keys({
     authorization: Joi.string().required(),
     "x-user-id": JoiObjectId().required(),

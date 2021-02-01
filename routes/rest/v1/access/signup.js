@@ -81,7 +81,7 @@ const signup = asyncHandler(async (req, res) => {
   }, "USER", accessTokenKey, refreshTokenKey)
 
   // token
-  const { tokens } = await assignTokens(
+  const tokens = await assignTokens(
     createdUser,
     keystore.primaryKey,
     keystore.secondaryKey
