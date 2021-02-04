@@ -19,10 +19,10 @@ router.get("/resetPassword/:token/:apiKey", asyncHandler(async (req, res) => {
 
 router.get("/login", asyncHandler(async (req, res) => {
   const {
-    scope,
-    responseType,
     clientId: apiKey,
     redirectUri,
+    scope,
+    responseType,
     state,
   } = req.query
   // console.log("apiKey", apiKey)

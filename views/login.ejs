@@ -556,6 +556,12 @@
                                 // $("#changePass-form").hide();
                                 // $("#success-msg").show();
                                 // console.log(resp)
+
+                                // when frontend attached with this auth
+                                // redirect the userID & redirectUri
+                                // so client can call requestToken
+                                // window.location.href = `${resp.data.client.redirectUri}?userId=${resp.data.user._id}&accessKey=${resp.data.keys.accessKey}`
+                               
                                 return app.requestTokens({
                                     userId: resp.data.user._id,
                                     accessToken: resp.data.keys.accessKey,
