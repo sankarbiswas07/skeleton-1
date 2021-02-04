@@ -1,5 +1,6 @@
 const _ = require("lodash")
 const crypto = require("crypto")
+const { RoleCode } = require("../../../../lib/helper/declaration")
 const asyncHandler = require("../../../../lib/core/asyncHandler")
 const UserRepo = require("../../../../database/mongoose/repositories/UserRepo")
 const { assignTokens } = require("../../../../lib/core/tokenManagement")
@@ -78,7 +79,7 @@ const signup = asyncHandler(async (req, res) => {
     phone,
     password,
     name
-  }, "USER", accessTokenKey, refreshTokenKey)
+  }, RoleCode.USER, accessTokenKey, refreshTokenKey)
 
   // token
   const tokens = await assignTokens(

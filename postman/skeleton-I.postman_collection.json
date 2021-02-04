@@ -1,0 +1,1622 @@
+{
+	"info": {
+		"_postman_id": "eb0c2e1e-4623-4a79-bd99-da074c3947ee",
+		"name": "skeleton-I",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":{\n\t\t\"first\":\"Sankar\",\n\t\t\"last\":\"Prasad Biswas\"\n\t},\n\t\"email\":\"sankarbiswas07+155@gmail.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/signup",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"value": "5ec050b9cc60d22e31bdc16d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/logout/yes",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"logout",
+								"yes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"sankarbiswas07@gmail.com\",\n\t\"password\":\"nopass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/login",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\":\"sankarbiswas07@gmail.com\",\n\t\"password\":\"nopass\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/login",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1208"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b8-yZnhg0tkWncYl48HyXC+rnG2oIA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 13:39:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ec050b9cc60d22e31bdc16d\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"prasad biswas\"\n            },\n            \"email\": \"sankarbiswas07@gmail.com\",\n            \"roles\": [\n                {\n                    \"_id\": \"5ec023317f06787780f9e52a\",\n                    \"code\": \"USER\"\n                }\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMDUxNzgsInN1YiI6IjVlYzA1MGI5Y2M2MGQyMmUzMWJkYzE2ZCIsImV4cCI6MTU5MTk2OTE3OCwicHJtIjoiMDE0MGYyZmY3NzU1NjY5OTg1ZTIyZGNiNGFiZWIwNzk1NjNlYzIxOTg2NzgzMDZmOWFlYzk3NGM2MThmN2YxOTYxNWE4OTQyOTZkZmM3NGFmYTIzMzVlODRjYWMxNjJkMmI4MGM3YzM5OWY4YTJiNjlhNTFiZTA4ZTYwZDFmNDcifQ.XhbcwF_FAhEuNY5n4d1Sh2FWiR9EZIq-XvDtmOzOwf6rjgX00tVjAQIMyxfpNBkB1cc-h5ruY5aVwnt3-hEu-Q\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMDUxNzgsInN1YiI6IjVlYzA1MGI5Y2M2MGQyMmUzMWJkYzE2ZCIsImV4cCI6MTU5MzY5NzE3OCwicHJtIjoiMmIwZjFkMTgzYjIyMTU4MzgzOGIzYTIxZjE5MTBhMzk1MDE0YmNmNDZkZmY3ZGZmMDYzNGMzYzQ3NmY5MDZjYjA2ZWZmNGVlMGM0NTZmYTY3OGY3NGE5ZjY3NzY1MzMxNWEyMGZhZjU1ZDRkMGRhMWE4YTNjMGI4MzY4ZTY3MDYifQ.D1XHOh4OwLAzRhFnDj8tmzQxIDTFlNnKANxbgyh_ihkBkOPBXiQiaT9v9wZxw6lZ1DvfWi17xejIL-qrhTncZQ\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Issue Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"sankarbiswas07+155@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/forgetPassword",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"forgetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Refresh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "5ec050b9cc60d22e31bdc16d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"refreshToken\" : \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMjQ0MTYsInN1YiI6IjVlYzA1MGI5Y2M2MGQyMmUzMWJkYzE2ZCIsImV4cCI6MTU5MzcxNjQxNiwicHJtIjoiNDk3NjNlNTFiNjc2MDRlOTUzYjc1NjI0YzVkYmE1ZTY1MTk0Mzc2YzdmNzc2YTljMmQyYzc3Nzc0MzQzNzRkYzg1NDU1N2M5NjExOTE4YjIzYjQ4OGE5MmVhNmM4ZDhjYzRkMGNiMDgxNjM2M2MxMjIyMzZhZmIyMDczNWMzYWYifQ.JNZwAZngVZrA7kx63OzuAs_xDuBcAUhf3rxCe-qWGB-uLVzFbz9mYk6lrn31W7LtpaPAoIN4VLnhWiCuebyLhw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/refresh",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Token Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTg5MjA4MzkxLCJwcm0iOiIyZWQwZTRhN2Y1NzM0Yjk2MTQwOTlmM2E4NGFiZDAwNjNjOTYxNzUwOWE2YTNjNjgyMjFkMWZmYmM1ZDZmM2ZlM2NkNGI1ZTUzYmJlMTVkNWJkNWY2NDU2NDZmYjU2Zjc0NThmOGY3YzFkMzYwNzNkODYxNzVjYzUxY2VlYjEzNyJ9.ItzC-9t6qwoIDUHj5Bp86z7RPGBVm2MitlxPrOtHVoyKtjIruHx3wypiY1zyefhNudleBq5JcHbHal_QWyuUrA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"refreshToken\" : \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTk2OTg0MzkxLCJwcm0iOiIyOTQxYjlkOGQ0ODhhZmFmYzAzOWI3ODM1ODA0YjdlYTk5YzAwZDcxNjNkOWY2MTU5MTU3ZjA1M2IwNmQ1ZDM5MDJjOWQxMmZmYzg1M2FmNWRkZDVlNmVkYmYwMDVkMmVjNjE3MjMxYzYyY2RkYWJhOTg3YmJkN2RlYjE4ZWE4YiJ9.VRxF93PQr5n7VRSlBhhWKy99dq9rsv16la-riWXZOU6sMBjJnW02lB_s9EiFETTjiNFNaTB0bKxcR1HBiduecA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/token/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"token",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1010"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f2-3T7KghgUecJ0Vw7YzwrEEYiI8Us\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Apr 2020 14:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Token Issued\",\n    \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTg5MjA4NDQwLCJwcm0iOiI1NjExNjYxMThlYTVmODI4MWQ3NDUyNzE0YWQwY2M5NzY2MGQwOWY0NjVmYzRkMzQxNWM5MTdjNTA0ZTExMjk2YmQ2YTU0MDllYjgzY2MwMzg2NDdmNTA0MWRjZmQ3NzIzYWM4OGYzYmMwMGYyNmVmNTI0MDE2OWJlYmFiNTE0MyJ9.B45OEyAPGZ5vrnV5ks-UvWQuH1I2-L0KP0FXaPcjmCfYUXvMZbwZACCn7AhaXZi9eqIJ81_kkGVLxKtfkGNdBw\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTk2OTg0NDQwLCJwcm0iOiJiM2FhNzE1YTU4YmRiMzJlNjRlOGJhN2E5NDZiOWZiOWVlNzU3ZGU3OWMzMzEzNGNhM2I2M2Y2NTgyNjA3YzdlYWZiYmI0N2UxZmM5MDY0ZjBiM2JkODQxYzk4YWU5M2VhOTNlMjI4MzkzYzNjNDFmMWRkMWQyOTEyMmU1ODU5NCJ9.KERcs_WOUmhGbE_WM2MyWCsGz2OOoYeZgMrngBFkugNoQ-9K00QRw9fX45s2_O2Fok8DxilymfqBC7LwCmVFRw\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\":\"921d262dfaaff089afe130af6cd40d9855bf9ceded34b3c82f9a234552fcf754a8d3789c3bb7e562130eb6c9fb701f9e86fc89f098fd3cf070e617a5e9f3366e\",\n\t\"password\":\"nopass1\",\n\t\"email\":\"sankarbiswas07+18@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/resetPassword",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"resetPassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Token Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTg5MjA4MzkxLCJwcm0iOiIyZWQwZTRhN2Y1NzM0Yjk2MTQwOTlmM2E4NGFiZDAwNjNjOTYxNzUwOWE2YTNjNjgyMjFkMWZmYmM1ZDZmM2ZlM2NkNGI1ZTUzYmJlMTVkNWJkNWY2NDU2NDZmYjU2Zjc0NThmOGY3YzFkMzYwNzNkODYxNzVjYzUxY2VlYjEzNyJ9.ItzC-9t6qwoIDUHj5Bp86z7RPGBVm2MitlxPrOtHVoyKtjIruHx3wypiY1zyefhNudleBq5JcHbHal_QWyuUrA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"refreshToken\" : \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTk2OTg0MzkxLCJwcm0iOiIyOTQxYjlkOGQ0ODhhZmFmYzAzOWI3ODM1ODA0YjdlYTk5YzAwZDcxNjNkOWY2MTU5MTU3ZjA1M2IwNmQ1ZDM5MDJjOWQxMmZmYzg1M2FmNWRkZDVlNmVkYmYwMDVkMmVjNjE3MjMxYzYyY2RkYWJhOTg3YmJkN2RlYjE4ZWE4YiJ9.VRxF93PQr5n7VRSlBhhWKy99dq9rsv16la-riWXZOU6sMBjJnW02lB_s9EiFETTjiNFNaTB0bKxcR1HBiduecA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/token/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"token",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1010"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f2-3T7KghgUecJ0Vw7YzwrEEYiI8Us\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Apr 2020 14:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Token Issued\",\n    \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTg5MjA4NDQwLCJwcm0iOiI1NjExNjYxMThlYTVmODI4MWQ3NDUyNzE0YWQwY2M5NzY2MGQwOWY0NjVmYzRkMzQxNWM5MTdjNTA0ZTExMjk2YmQ2YTU0MDllYjgzY2MwMzg2NDdmNTA0MWRjZmQ3NzIzYWM4OGYzYmMwMGYyNmVmNTI0MDE2OWJlYmFiNTE0MyJ9.B45OEyAPGZ5vrnV5ks-UvWQuH1I2-L0KP0FXaPcjmCfYUXvMZbwZACCn7AhaXZi9eqIJ81_kkGVLxKtfkGNdBw\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTk2OTg0NDQwLCJwcm0iOiJiM2FhNzE1YTU4YmRiMzJlNjRlOGJhN2E5NDZiOWZiOWVlNzU3ZGU3OWMzMzEzNGNhM2I2M2Y2NTgyNjA3YzdlYWZiYmI0N2UxZmM5MDY0ZjBiM2JkODQxYzk4YWU5M2VhOTNlMjI4MzkzYzNjNDFmMWRkMWQyOTEyMmU1ODU5NCJ9.KERcs_WOUmhGbE_WM2MyWCsGz2OOoYeZgMrngBFkugNoQ-9K00QRw9fX45s2_O2Fok8DxilymfqBC7LwCmVFRw\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "x-user-id",
+								"value": "5ec050b9cc60d22e31bdc16d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"newPassword\":\"nopass\",\n\t\"password\":\"nopass1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/auth/changePassword",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"auth",
+								"changePassword"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Token Refresh",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTg5MjA4MzkxLCJwcm0iOiIyZWQwZTRhN2Y1NzM0Yjk2MTQwOTlmM2E4NGFiZDAwNjNjOTYxNzUwOWE2YTNjNjgyMjFkMWZmYmM1ZDZmM2ZlM2NkNGI1ZTUzYmJlMTVkNWJkNWY2NDU2NDZmYjU2Zjc0NThmOGY3YzFkMzYwNzNkODYxNzVjYzUxY2VlYjEzNyJ9.ItzC-9t6qwoIDUHj5Bp86z7RPGBVm2MitlxPrOtHVoyKtjIruHx3wypiY1zyefhNudleBq5JcHbHal_QWyuUrA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"refreshToken\" : \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjM5MSwiZXhwIjoxNTk2OTg0MzkxLCJwcm0iOiIyOTQxYjlkOGQ0ODhhZmFmYzAzOWI3ODM1ODA0YjdlYTk5YzAwZDcxNjNkOWY2MTU5MTU3ZjA1M2IwNmQ1ZDM5MDJjOWQxMmZmYzg1M2FmNWRkZDVlNmVkYmYwMDVkMmVjNjE3MjMxYzYyY2RkYWJhOTg3YmJkN2RlYjE4ZWE4YiJ9.VRxF93PQr5n7VRSlBhhWKy99dq9rsv16la-riWXZOU6sMBjJnW02lB_s9EiFETTjiNFNaTB0bKxcR1HBiduecA\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/token/refresh",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"token",
+										"refresh"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1010"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f2-3T7KghgUecJ0Vw7YzwrEEYiI8Us\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 11 Apr 2020 14:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Token Issued\",\n    \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTg5MjA4NDQwLCJwcm0iOiI1NjExNjYxMThlYTVmODI4MWQ3NDUyNzE0YWQwY2M5NzY2MGQwOWY0NjVmYzRkMzQxNWM5MTdjNTA0ZTExMjk2YmQ2YTU0MDllYjgzY2MwMzg2NDdmNTA0MWRjZmQ3NzIzYWM4OGYzYmMwMGYyNmVmNTI0MDE2OWJlYmFiNTE0MyJ9.B45OEyAPGZ5vrnV5ks-UvWQuH1I2-L0KP0FXaPcjmCfYUXvMZbwZACCn7AhaXZi9eqIJ81_kkGVLxKtfkGNdBw\",\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhZnRlcmFjYWRlbXkuY29tIiwiYXVkIjoiYWZ0ZXJhY2FkZW15LmNvbSIsInN1YiI6IjVlOTFkNzcxMzEyYzQwMDAzZDg5ZjllZSIsImlhdCI6MTU4NjYxNjQ0MCwiZXhwIjoxNTk2OTg0NDQwLCJwcm0iOiJiM2FhNzE1YTU4YmRiMzJlNjRlOGJhN2E5NDZiOWZiOWVlNzU3ZGU3OWMzMzEzNGNhM2I2M2Y2NTgyNjA3YzdlYWZiYmI0N2UxZmM5MDY0ZjBiM2JkODQxYzk4YWU5M2VhOTNlMjI4MzkzYzNjNDFmMWRkMWQyOTEyMmU1ODU5NCJ9.KERcs_WOUmhGbE_WM2MyWCsGz2OOoYeZgMrngBFkugNoQ-9K00QRw9fX45s2_O2Fok8DxilymfqBC7LwCmVFRw\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Invitation",
+			"item": [
+				{
+					"name": "Signup - Invitation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"value": "5ec050b9cc60d22e31bdc16d",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":{\n\t\t\"first\":\"Sankar\",\n\t\t\"last\":\"Prasad Biswas\"\n\t},\n\t\"email\":\"sankarbiswas07+555@gmail.com\",\n\t\"phone\":\"1231231234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/invitation/signup",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"invitation",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Signup - Invitation Acceptence",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\":\"5ee2829642963316bbc2f357\",\n\t\"password\":\"qwerty\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/invitation/acceptSignup",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"invitation",
+								"acceptSignup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Invitation List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "5ec050b9cc60d22e31bdc16d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/invitation/list?type=signup&status=invited",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"invitation",
+								"list"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "signup"
+								},
+								{
+									"key": "status",
+									"value": "invited"
+								},
+								{
+									"key": "invitee",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Invitation List",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+									},
+									{
+										"key": "x-user-id",
+										"type": "text",
+										"value": "5ec050b9cc60d22e31bdc16d"
+									}
+								],
+								"url": {
+									"raw": "{{base}}/invitation/list?type=signup&status=accepted",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"invitation",
+										"list"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "signup"
+										},
+										{
+											"key": "status",
+											"value": "accepted"
+										},
+										{
+											"key": "invitee",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1998"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7ce-J++Z5gJ79cQStNIHNzpWqQhATN0\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jun 2020 19:06:38 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Invitation list\",\n    \"data\": {\n        \"invitations\": [\n            {\n                \"_id\": \"5ede8c7c5f73cb183e624d2d\",\n                \"isAccepted\": true,\n                \"inviter\": {\n                    \"_id\": \"5ec050b9cc60d22e31bdc16d\",\n                    \"forgotpassword\": {\n                        \"requestedAt\": null,\n                        \"token\": null,\n                        \"expiresAt\": null\n                    },\n                    \"isActive\": true,\n                    \"email\": \"sankarbiswas07@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"sankar\",\n                        \"last\": \"prasad biswas\"\n                    },\n                    \"createdAt\": \"2020-05-16T20:44:41.458Z\",\n                    \"updatedAt\": \"2020-06-07T20:58:24.095Z\",\n                    \"__v\": 0,\n                    \"updatedBy\": \"5ec050b9cc60d22e31bdc16d\"\n                },\n                \"onModel\": \"User\",\n                \"data\": {\n                    \"email\": \"sankarbiswas07+192@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"Sankar\",\n                        \"last\": \"Prasad Biswas\"\n                    }\n                },\n                \"createdAt\": \"2020-06-08T19:07:40.782Z\",\n                \"updatedAt\": \"2020-06-08T20:34:02.831Z\",\n                \"invitationOn\": {\n                    \"_id\": \"5edea0b2805ce43745173bec\",\n                    \"isActive\": true,\n                    \"email\": \"sankarbiswas07+192@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"Sankar\",\n                        \"last\": \"Prasad Biswas\"\n                    },\n                    \"createdAt\": \"2020-06-08T20:33:54.705Z\",\n                    \"updatedAt\": \"2020-06-08T20:33:54.705Z\",\n                    \"createdBy\": \"5edea0b2805ce43745173bec\",\n                    \"updatedBy\": \"5edea0b2805ce43745173bec\",\n                    \"__v\": 0\n                },\n                \"invitee\": {\n                    \"_id\": \"5edea0b2805ce43745173bec\",\n                    \"isActive\": true,\n                    \"email\": \"sankarbiswas07+192@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"Sankar\",\n                        \"last\": \"Prasad Biswas\"\n                    },\n                    \"createdAt\": \"2020-06-08T20:33:54.705Z\",\n                    \"updatedAt\": \"2020-06-08T20:33:54.705Z\",\n                    \"createdBy\": \"5edea0b2805ce43745173bec\",\n                    \"updatedBy\": \"5edea0b2805ce43745173bec\",\n                    \"__v\": 0\n                }\n            },\n            {\n                \"_id\": \"5ede8eef5ec9551d14ad8446\",\n                \"isAccepted\": true,\n                \"inviter\": {\n                    \"_id\": \"5ec050b9cc60d22e31bdc16d\",\n                    \"forgotpassword\": {\n                        \"requestedAt\": null,\n                        \"token\": null,\n                        \"expiresAt\": null\n                    },\n                    \"isActive\": true,\n                    \"email\": \"sankarbiswas07@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"sankar\",\n                        \"last\": \"prasad biswas\"\n                    },\n                    \"createdAt\": \"2020-05-16T20:44:41.458Z\",\n                    \"updatedAt\": \"2020-06-07T20:58:24.095Z\",\n                    \"__v\": 0,\n                    \"updatedBy\": \"5ec050b9cc60d22e31bdc16d\"\n                },\n                \"onModel\": \"User\",\n                \"data\": {\n                    \"email\": \"sankarbiswas07+112@gmail.com\",\n                    \"phone\": \"1231231234\",\n                    \"name\": {\n                        \"first\": \"Sankar\",\n                        \"last\": \"Prasad Biswas\"\n                    }\n                },\n                \"createdAt\": \"2020-06-08T19:18:07.184Z\",\n                \"updatedAt\": \"2020-06-08T20:20:48.504Z\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "ROLE -  Update right",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "5ec050b9cc60d22e31bdc16d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"ADMIN\",\n\t\"method\": \"POST\",\n\t\"rightName\": \"invitation\",\n\t\"status\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/role/update",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"role",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						},
+						{
+							"name": "ROLE -  Update right",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+									},
+									{
+										"key": "x-user-id",
+										"type": "text",
+										"value": "5ec050b9cc60d22e31bdc16d"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"code\": \"ADMIN\",\n\t\"method\": \"POST\",\n\t\"rightName\": \"invitation\",\n\t\"status\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/role/update",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"role",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "541"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"21d-+ymEpT7ZouqqMmlvIQaOmiiZmDQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jun 2020 19:14:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Role right updated\",\n    \"data\": {\n        \"_id\": \"5ec023317f06787780f9e52b\",\n        \"code\": \"ADMIN\",\n        \"isActive\": true,\n        \"rights\": {\n            \"POST\": {\n                \"role\": true,\n                \"own\": true,\n                \"any\": false,\n                \"invitation\": true\n            },\n            \"PATCH\": {\n                \"role\": true,\n                \"own\": true,\n                \"any\": false,\n                \"invitation\": false\n            },\n            \"DELETE\": {\n                \"role\": true,\n                \"own\": true,\n                \"any\": false,\n                \"invitation\": false\n            },\n            \"PUT\": {\n                \"role\": true,\n                \"demo\": true,\n                \"own\": true,\n                \"any\": false,\n                \"invitation\": false\n            },\n            \"GET\": {\n                \"role\": true,\n                \"own\": true,\n                \"any\": false,\n                \"invitation\": true\n            }\n        },\n        \"createdAt\": \"2020-05-16T17:30:25.104Z\",\n        \"updatedAt\": \"2020-06-11T19:14:24.790Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "ROLE -  list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "5ec050b9cc60d22e31bdc16d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rightName\": \"own\",\n\t\"defaultPermission\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/role/list",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"role",
+								"list"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ROLE -  list",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "x-api-key",
+										"type": "text",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+									},
+									{
+										"key": "x-user-id",
+										"type": "text",
+										"value": "5ec050b9cc60d22e31bdc16d"
+									}
+								],
+								"url": {
+									"raw": "{{base}}/role/list",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"role",
+										"list"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "830"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33e-6R0nmI2Fof/pInkrvVjDhaxG+eA\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 11 Jun 2020 16:47:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Role list\",\n    \"data\": [\n        {\n            \"_id\": \"5ec023317f06787780f9e52a\",\n            \"code\": \"USER\",\n            \"isActive\": true,\n            \"rights\": {\n                \"POST\": {\n                    \"role\": false,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"PATCH\": {\n                    \"role\": false,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"DELETE\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"PUT\": {\n                    \"role\": true,\n                    \"demo\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"GET\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                }\n            },\n            \"createdAt\": \"2020-05-16T17:30:25.104Z\",\n            \"updatedAt\": \"2020-06-11T16:47:05.520Z\"\n        },\n        {\n            \"_id\": \"5ec023317f06787780f9e52b\",\n            \"code\": \"ADMIN\",\n            \"isActive\": true,\n            \"rights\": {\n                \"POST\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"PATCH\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"DELETE\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"PUT\": {\n                    \"role\": true,\n                    \"demo\": true,\n                    \"own\": true,\n                    \"any\": false\n                },\n                \"GET\": {\n                    \"role\": true,\n                    \"own\": true,\n                    \"any\": false\n                }\n            },\n            \"createdAt\": \"2020-05-16T17:30:25.104Z\",\n            \"updatedAt\": \"2020-06-11T16:40:37.606Z\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Role- right add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{accessToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"type": "text",
+								"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj"
+							},
+							{
+								"key": "x-user-id",
+								"type": "text",
+								"value": "5ec050b9cc60d22e31bdc16d"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"rightName\": \"blog\",\n\t\"defaultPermission\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base}}/role/right",
+							"host": [
+								"{{base}}"
+							],
+							"path": [
+								"role",
+								"right"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Signup Successful",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "GCMUDiuY5a7WvyUNt9n3QztToSHzK7Uj",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\":{\n\t\t\"first\":\"sankar\",\n\t\t\"last\":\"\"\n\t},\n\t\"email\":\"sankar+11@logic-square.com\",\n\t\"password\":\"nopass\",\n\t\"phone\":\"1231231234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base}}/auth/signup",
+									"host": [
+										"{{base}}"
+									],
+									"path": [
+										"auth",
+										"signup"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1192"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4a8-J3vkCKobVekx/+SWUsvNnMu9GkY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 02 Jun 2020 16:59:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": \"10000\",\n    \"message\": \"Signup Successful\",\n    \"data\": {\n        \"user\": {\n            \"_id\": \"5ed6856f27c3b633f92bc28e\",\n            \"name\": {\n                \"first\": \"sankar\",\n                \"last\": \"\",\n                \"full\": \"sankar \"\n            },\n            \"email\": \"sankar+11@logic-square.com\",\n            \"roles\": [\n                \"5ec023317f06787780f9e52a\"\n            ]\n        },\n        \"tokens\": {\n            \"accessToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MTk4MTE2NywicHJtIjoiNDAxMjhlNDIzMjY3YzdlODU5ZmZlYjJlZGJlY2M3MmRkMWFiZWRiMzU5ODYzMjQxZjg3NmQxNjIyMGJjNTU1ODAxMjA5ZTBkMGFiODZlMjIwMzJkZTVmZTAwYmRmZWJmN2Q0OWNmY2U4ZTExOWM3MjQ0YzkxMWRlODRlNmIzNGMifQ.JK6gTnetuMgnievZQZbTTqi8_OBxM25B4c4ox8PbfRKiQfDgKChoun1XQ4d4eQfR2xd-PX7tPLgeOF_lsOBmrA\",\n            \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJtaW51Lmluc3RhY2t5LmNvbSIsImF1ZCI6Im1pbnVfdXNlcnMiLCJpYXQiOjE1OTExMTcxNjcsInN1YiI6IjVlZDY4NTZmMjdjM2I2MzNmOTJiYzI4ZSIsImV4cCI6MTU5MzcwOTE2NywicHJtIjoiODVmYjZlYTIwNTYzNmJiYWE5MDJiODc0ZWI0MDc2YThhMTRkNzRjMDEyNWZkMWNlNjIzMTRkNWVjYjZiZmY0NGVlNGYwNDE2NGU2ZTZiN2RmYjY3YTRmZmRkMTIyY2ZkY2Q1OGE1ZGJkY2M4ZWU0NWM2MGUzMjAyZDk4NjJmMGYifQ.LZ7RRnNmNvDvvBcIveqJiqtb8Brnmp2UnsU8QCU_xT0DG0LY0cmn1-l2WWk6oz4HjiW0y3D50UzbZz4kVfL2kA\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

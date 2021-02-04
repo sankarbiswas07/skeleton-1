@@ -26,20 +26,18 @@ module.exports = {
       // expiresAt: moment(now).add(10, "days").toDate()
       expiresAt: moment(now).add(65, "minutes").toDate()
     }
-    await UserRepo.update({
-      _id: user._id,
-      forgotPassword
-    })
+
+    await UserRepo.update({ _id: user._id, forgotPassword })
 
     // Mail should be triggered here (with reset password link - resetPasswordLink)
     // Which will open a html page from backend which will reset the password
-    const resetPasswordLink = `${siteUrl}/w1/resetPassword/${forgotPassword.token}/${req.client.apiKey}`
+    const resetPasswordLink = `${siteUrl}/w1/resetPassword/${forgotPassword.token}/${req.client.key}`
     // Send Email
     forgotMail(user.email, {
       _id: user._id,
       email: user.email,
       name: user.name,
-      resetPasswordLink
+      resetPasswordLink,
     })
     return SuccessMsgResponse(res, "Instruction has been sent to your mail")
   }),
