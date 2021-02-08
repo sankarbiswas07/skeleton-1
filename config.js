@@ -46,6 +46,7 @@ config.mongoCred = {
 config.corsUrl = process.env.CORS_URL || "*"
 config.siteUrl = process.env.SITE_URL || "http://localhost:3000"
 config.frontEndLogin = process.env.FRONTEND_LOGIN_URL || "http://localhost:3000"
+config.signupInvitationBase = process.env.INVITATION_SIGNUP_URL || "http://localhost:3000"
 
 //-----------------------------------------------------
 //                                  S M T P    M A I L
