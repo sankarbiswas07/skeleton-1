@@ -7,7 +7,7 @@ const KeystoreRepo = {
     .exec(),
 
   remove: id => Keystore
-    .findByIdAndRemove(id)
+    .findByIdAndDelete(id)
     .lean()
     .exec(),
 

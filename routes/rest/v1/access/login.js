@@ -1,6 +1,6 @@
 const _ = require("lodash")
 const crypto = require("crypto")
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcryptjs")
 const asyncHandler = require("../../../../lib/core/asyncHandler")
 const UserRepo = require("../../../../database/mongoose/repositories/UserRepo")
 const KeystoreRepo = require("../../../../database/mongoose/repositories/KeystoreRepo")

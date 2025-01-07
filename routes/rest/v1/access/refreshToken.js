@@ -54,9 +54,15 @@ const { AuthFailureError } = require("../../../../lib/core/apiError")
 
 
 const refreshToken = asyncHandler(async (req, res) => {
-  req.accessToken = req.headers["x-access-token"].toString()
+  
+  const [bearer_prefix, jwt_token] = (req.headers["authorization"]).split(" ")
 
-  const user = await UserRepo.findById(mongoose.Types.ObjectId(req.headers["x-user-id"].toString()))
+  if (!bearer_prefix) throw ForbiddenError()
+  if (!jwt_token) throw ForbiddenError()
+
+  req.accessToken = jwt_token.trim()
+
+  const user = await UserRepo.findById(req.headers["x-user-id"].toString())
   if (!user) throw AuthFailureError("User not registered")
   req.user = user
 

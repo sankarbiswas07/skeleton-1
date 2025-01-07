@@ -36,7 +36,6 @@ config.tokenInfo = {
 //-----------------------------------------------------
 
 config.mongoCred = {
-  name: process.env.MONGO_DB_NAME,
   connectionUri: process.env.MONGODB_CONNECTION_STRING
 }
 
